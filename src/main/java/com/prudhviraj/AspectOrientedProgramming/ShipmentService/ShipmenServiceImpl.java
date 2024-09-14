@@ -1,8 +1,10 @@
 package com.prudhviraj.AspectOrientedProgramming.ShipmentService;
 
+import com.prudhviraj.AspectOrientedProgramming.customAnnotations.MyLoggingAnnotation;
 import com.prudhviraj.AspectOrientedProgramming.shipmetnInterface.ShipmentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @Service
@@ -20,6 +22,7 @@ public class ShipmenServiceImpl implements ShipmentService {
     }
 
     @Override
+    @Transactional
     public String trackPackage(Long orderId) {
         log.info(("tackPackage is called here....."));
         try {
@@ -29,5 +32,9 @@ public class ShipmenServiceImpl implements ShipmentService {
         } catch (InterruptedException e) {
          throw  new RuntimeException(e.getMessage());
         }
+    }
+    @MyLoggingAnnotation
+    public void test(){
+        System.out.println("Aspect Testing");
     }
 }

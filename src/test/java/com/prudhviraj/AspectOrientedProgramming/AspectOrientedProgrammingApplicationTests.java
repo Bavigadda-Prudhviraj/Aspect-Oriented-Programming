@@ -25,6 +25,9 @@ class AspectOrientedProgrammingApplicationTests {
 		shimpment.trackPackage(4l);
 	}
 
-
+	@Test
+	void aopTest(){
+		shimpment.test();
+	}
 
 }
